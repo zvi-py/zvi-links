@@ -1,0 +1,44 @@
+@import "tailwindcss";
+
+@theme {
+  --font-script: "Allison", cursive;
+}
+
+@layer base {
+  html,
+  body {
+    background-color: #ffffff;
+    font-family: var(--font-script);
+    color: #181416;
+  }
+}
+
+@keyframes heroSettleIn {
+  0% {
+    opacity: 0;
+    transform: translateY(10px) scale(0.965);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+.hero-settle {
+  animation: heroSettleIn 620ms cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .hero-settle {
+    animation: none;
+    opacity: 1;
+    transform: none;
+  }
+
+  *,
+  *::before,
+  *::after {
+    transition-duration: 0.01ms !important;
+    animation-duration: 0.01ms !important;
+  }
+}
